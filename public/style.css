@@ -1,0 +1,71 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: #e7e7ee;
+  background-color: #222;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  display: flex;
+  align-items: space-between;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  max-width: 100vw;
+}
+
+li {
+  list-style-type: none;
+}
+
+.crapContainer {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.raidContainer {
+  display: flex;
+  flex-wrap: wrap;
+  border: 3px solid #e7e7ee;
+  border-radius: 13px;
+  padding: 1em 3em;
+  margin: 50px;
+  width: 25vw;
+  height: 50vh;
+}
+
+.raidTitle {
+  font-size: large;
+  font-weight: 700;
+}
+
+.locationCont {
+  display: flex;
+}
+.locationCont button {
+  height: 0.5em;
+  width: 0.5em;
+}
+
+#raidMap {
+  max-width: 500px;
+  max-height: 500px;
+}
+
+.inv {
+  visibility: hidden;
+}
+
+.cleared {
+  text-decoration: line-through;
+  opacity: 0.3;
+}

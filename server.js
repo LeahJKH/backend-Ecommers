@@ -1,0 +1,34 @@
+//external imports
+require("dotenv").config();
+const path = require("path");
+const express = require("express");
+const app = express();
+//internal imports/middleware
+
+const PORT = process.env.PORT || 3500;
+//static files
+app.use(express.static(path.join(__dirname, "./public")));
+//root
+app.use("/", require("./routes/root"));
+//catch-all 404 response page
+app.all("*", (req, res) => {
+  res.status(404);
+  if (req.accepts("html")) {
+    res.sendFile(path.join(__dirname, "pages", "404.html"));
+  } else if (res.accepts("json")) {
+    res.json({ error: "404 jason not found" });
+  } else req.accepts("txt");
+  {
+    res.type("txt").send("404 text not found");
+  }
+});
+//confirm server is running and on which port
+app.listen(PORT, () => console.log(`server is running on port ${PORT}`));
+
+/*const getProducts = () => {
+  fetch("https://fakestoreapi.com/products")
+    .then((res) => res.json())
+    .then((json) => console.log(json));
+};
+
+getProducts();*/

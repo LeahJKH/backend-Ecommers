@@ -3,13 +3,20 @@ require("dotenv").config();
 const path = require("path");
 const express = require("express");
 const app = express();
+const router = express.Router();
 //internal imports/middleware
+const { logger } = require("./middleware/logEvents");
+const errorHandler = require("./middleware/errorHandler");
 
 const PORT = process.env.PORT || 3500;
 //static files
 app.use(express.static(path.join(__dirname, "./public")));
+
+app.use(errorHandler);
+
 //root
 app.use("/", require("./routes/root"));
+
 //catch-all 404 response page
 app.all("*", (req, res) => {
   res.status(404);
@@ -22,6 +29,7 @@ app.all("*", (req, res) => {
     res.type("txt").send("404 text not found");
   }
 });
+
 //confirm server is running and on which port
 app.listen(PORT, () => console.log(`server is running on port ${PORT}`));
 

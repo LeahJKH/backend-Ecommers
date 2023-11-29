@@ -9,10 +9,12 @@ const { logger } = require("./middleware/logEvents");
 const errorHandler = require("./middleware/errorHandler");
 
 const PORT = process.env.PORT || 3500;
+app.use(logger);
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
 //static files
 app.use(express.static(path.join(__dirname, "./public")));
-
-app.use(errorHandler);
 
 //root
 app.use("/", require("./routes/root"));
@@ -30,6 +32,7 @@ app.all("*", (req, res) => {
   }
 });
 
+app.use(errorHandler);
 //confirm server is running and on which port
 app.listen(PORT, () => console.log(`server is running on port ${PORT}`));
 

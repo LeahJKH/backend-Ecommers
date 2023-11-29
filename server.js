@@ -4,9 +4,19 @@ const path = require("path");
 const express = require("express");
 const app = express();
 const router = express.Router();
+const mongoose = require("mongoose");
+const cors = require("cors");
 //internal imports/middleware
 const { logger } = require("./middleware/logEvents");
 const errorHandler = require("./middleware/errorHandler");
+const connectDB = require("./config/dbConn");
+
+const corsOptions = require("./config/corsOptions");
+
+connectDB();
+
+app.use(logger);
+app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 3500;
 //static files
@@ -14,8 +24,12 @@ app.use(express.static(path.join(__dirname, "./public")));
 
 app.use(errorHandler);
 
-//root
+app.use(express.json());
+
+//routes
 app.use("/", require("./routes/root"));
+
+app.use("/register", require("./routes/register"));
 
 //catch-all 404 response page
 app.all("*", (req, res) => {
@@ -30,8 +44,11 @@ app.all("*", (req, res) => {
   }
 });
 
-//confirm server is running and on which port
-app.listen(PORT, () => console.log(`server is running on port ${PORT}`));
+//connect to database, check connection and log confirmation of connection and port once
+mongoose.connection.once("open", () => {
+  console.log("Connected to MongoDB Database");
+  app.listen(PORT, () => console.log(`server is running on port ${PORT}`));
+});
 
 /*const getProducts = () => {
   fetch("https://fakestoreapi.com/products")

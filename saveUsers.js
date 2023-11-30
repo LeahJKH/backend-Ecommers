@@ -6,7 +6,7 @@ const bcrypt = require("bcrypt");
 const hashedPwd = bcrypt.hash(pwd, 13);
 const newUser = { username: user, pwd: hashedPwd };
 console.log(newUser);
-userSave();
+userSave(user, hashedPwd);
 
 const userSave = async (name, pwd) => {
   const data = await fsPromises.readFile(path.join(__dirname, "users.txt"), "utf8");

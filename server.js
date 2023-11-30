@@ -19,15 +19,15 @@ app.use(express.static(path.join(__dirname, "./public")));
 //root
 app.use("/", require("./routes/root"));
 
-app.use("/", require("./routes/register"));
+app.use("/register", require("./routes/register"));
 
 //catch-all 404 response page
 app.all("*", (req, res) => {
   res.status(404);
   if (req.accepts("html")) {
-    res.sendFile(path.join(__dirname, "pages", "404.html"));
+    res.sendFile(path.join(__dirname, "view", "404.html"));
   } else if (res.accepts("json")) {
-    res.json({ error: "404 jason not found" });
+    res.json({ error: "404 Jason Not Found" });
   } else req.accepts("txt");
   {
     res.type("txt").send("404 text not found");

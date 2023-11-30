@@ -1,0 +1,2 @@
+name: dude, password: $2b$13$9AAfmWUv1FeAyAmsCZVmoeIonL2JjJtOoZKjLeurFVaVOpK3//djO
+name: dude, password: $2b$13$WkKnQpbbMNLjkm.aXZJr8eRpV/i3sXy2mKJA8FyDDZ1hXuFrJBuF.

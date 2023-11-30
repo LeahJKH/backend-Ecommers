@@ -38,7 +38,7 @@ const handleNewUser = async (req, res) => {
 
 const userSave = async (name, password) => {
   await fsPromises.appendFile(
-    path.join(__dirname, "..", "users.txt"),
+    path.join(__dirname, "..", "model", "usersTxt.txt"),
     `\nname: ${name}, password: ${password}`
   );
 };

@@ -19,6 +19,8 @@ app.use(express.static(path.join(__dirname, "./public")));
 //root
 app.use("/", require("./routes/root"));
 
+app.use("/", require("./routes/register"));
+
 //catch-all 404 response page
 app.all("*", (req, res) => {
   res.status(404);

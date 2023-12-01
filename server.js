@@ -10,7 +10,6 @@ const cookieParser = require("cookie-parser");
 const { logger } = require("./middleware/logEvents");
 const errorHandler = require("./middleware/errorHandler");
 const corsOptions = require("./config/corsOptions");
-const verifyJWT = require("./middleware/verifyJWT");
 
 const PORT = process.env.PORT || 3500;
 
@@ -27,7 +26,6 @@ app.use(express.static(path.join(__dirname, "./public")));
 //root
 app.use("/", require("./routes/root"));
 //routes
-//app.use(verifyJWT); //verify authorization
 app.use("/users", require("./routes/user"));
 app.use("/auth", require("./routes/auth"));
 app.use("/refresh", require("./routes/refresh"));

@@ -5,15 +5,19 @@ const express = require("express");
 const app = express();
 const router = express.Router();
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 //internal imports/middleware
 const { logger } = require("./middleware/logEvents");
 const errorHandler = require("./middleware/errorHandler");
 const corsOptions = require("./config/corsOptions");
+const verifyJWT = require("./middleware/verifyJWT");
 
 const PORT = process.env.PORT || 3500;
 
+//Middleware
 app.use(logger);
 app.use(cors(corsOptions));
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
@@ -22,9 +26,11 @@ app.use(express.static(path.join(__dirname, "./public")));
 
 //root
 app.use("/", require("./routes/root"));
-
+//routes
+//app.use(verifyJWT); //verify authorization
 app.use("/users", require("./routes/user"));
 app.use("/auth", require("./routes/auth"));
+app.use("/refresh", require("./routes/refresh"));
 
 //catch-all 404 response page
 app.all("*", (req, res) => {

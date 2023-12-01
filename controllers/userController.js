@@ -54,9 +54,9 @@ const deleteUser = (req, res) => {
 };
 
 const userSave = async (name, password) => {
-  await fsPromises.appendFile(
+  await fsPromises.writeFile(
     path.join(__dirname, "..", "model", "usersTxt.txt"),
-    `\nname: ${name}, password: ${password}`
+    JSON.stringify(usersDB.users)
   );
 };
 

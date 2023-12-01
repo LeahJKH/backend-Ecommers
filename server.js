@@ -36,12 +36,12 @@ app.use("/refresh", require("./routes/refresh"));
 app.all("*", (req, res) => {
   res.status(404);
   if (req.accepts("html")) {
-    res.sendFile(path.join(__dirname, "view", "404.html"));
+    return res.sendFile(path.join(__dirname, "pages", "404.html"));
   } else if (res.accepts("json")) {
-    res.json({ error: "404 Jason Not Found" });
+    return res.json({ error: "404 Jason Not Found" });
   } else req.accepts("txt");
   {
-    res.type("txt").send("404 text not found");
+    return res.type("txt").send("404 text not found");
   }
 });
 

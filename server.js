@@ -29,6 +29,7 @@ app.use("/", require("./routes/root"));
 app.use("/users", require("./routes/user"));
 app.use("/auth", require("./routes/auth"));
 app.use("/refresh", require("./routes/refresh"));
+app.use("/logout", require("./routes/logout"));
 
 //catch-all 404 response page
 app.all("*", (req, res) => {

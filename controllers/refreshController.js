@@ -1,12 +1,12 @@
+//set database
 const usersDB = {
   users: require("../model/users.json"),
   setUsers: function (data) {
     this.users = data;
   },
 };
-
+//import jwt and dotenv config
 const jwt = require("jsonwebtoken");
-
 require("dotenv").config();
 
 const handleRefreshToken = (req, res) => {
@@ -23,7 +23,7 @@ const handleRefreshToken = (req, res) => {
   jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (err, decoded) => {
     if (err || foundUser.username !== decoded.username) return res.sendStatus(403);
     const accessToken = jwt.sign({ username: decoded.username }, process.env.ACCESS_TOKEN_SECRET, {
-      expiresIN: "30s",
+      expiresIn: "30s",
     });
     res.json(accessToken);
   });

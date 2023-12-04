@@ -21,7 +21,8 @@
     "price": 780000,
     "description": "Expensive Brown Johdpuri Suit for formal occacions",
     "category": "Clothing",
-    "image": "https://cdn.discordapp.com/attachments/1179001915045056593/1179394465870401636/id3.jpeg?ex=65799fb0&is=65672ab0&hm=626096304eb0285548a92f5d63473e66a960c699d6ed78707719dabe80388a16&"
+    "image": "https://cdn.discordapp.com/attachments/1179001915045056593/1179394465870401636/id3.jpeg?ex=65799fb0&is=65672ab0&hm=626096304eb0285548a92f5d63473e66a960c699d6ed78707719dabe80388a16&",
+    "imageProxy": "https://doubledimages.netlify.app/Images/id3.jpeg"
   },
   {
     "id": 4,

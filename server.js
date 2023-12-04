@@ -6,6 +6,7 @@ const app = express();
 const router = express.Router();
 const mongoose = require("mongoose");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 //internal imports/middleware
 const { logger } = require("./middleware/logEvents");
 const errorHandler = require("./middleware/errorHandler");
@@ -24,7 +25,9 @@ app.use(express.static(path.join(__dirname, "./public")));
 
 app.use(errorHandler);
 
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(cookieParser());
 
 //routes
 app.use("/", require("./routes/root"));

@@ -6,7 +6,9 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 const handleLogin = async (req, res) => {
-  const { user, pwd } = req.body;
+  //const { user, pwd } = req.body; //destructuring didn't want to work
+  const user = req.body.username;
+  const pwd = req.body.password;
   if (!user || !pwd) {
     return res.status(400).json({ message: "Username and password are required." });
   }
@@ -30,6 +32,10 @@ const handleLogin = async (req, res) => {
 
     res.cookie("jwt", refreshToken, { httpOnly: true, maxAge: 24 * 60 * 6 * 1000 });
     res.json({ accessToken });
+
+    foundUser.refreshToken = refreshToken;
+    const result = await foundUser.save();
+    console.log(result);
   } else {
     res.sendStatus(401);
   }

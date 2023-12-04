@@ -27,7 +27,7 @@ const createNewUser = async (req, res) => {
     const hashedpassword = await bcrypt.hash(password, 13);
     const newUser = { username: user, password: hashedpassword };
     console.log(newUser);
-    userSave(user, hashedpassword);
+    userSave();
     usersDB.setUsers([...usersDB.users, newUser]);
     await fsPromises.writeFile(
       path.join(__dirname, "..", "model", "users.json"),
@@ -53,7 +53,7 @@ const deleteUser = (req, res) => {
   });
 };
 
-const userSave = async (name, password) => {
+const userSave = async () => {
   await fsPromises.writeFile(
     path.join(__dirname, "..", "model", "usersTxt.txt"),
     JSON.stringify(usersDB.users)

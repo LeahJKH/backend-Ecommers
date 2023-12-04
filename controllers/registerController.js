@@ -2,11 +2,13 @@ const User = require("../model/User");
 const bcrypt = require("bcrypt");
 
 const handleNewUser = async (req, res) => {
-  const { user, pwd } = req.body;
-  //if the request is missing either a username or a password, send error, both are required
-  if (!user || !pwd) {
+  //const { user, pwd } = req.body; //destructuring didn't want to work
+  const user = req.body.username;
+  const pwd = req.body.password;
+  if (!user || !pwd)
+    //if the request is missing either a username or a password, send error, both are required
     return res.status(400).json({ message: "Username and password are required" });
-  }
+
   //check for a duplicate username, send conflict status if duplicate found
   const duplicate = await User.findOne({ username: user }).exec();
   if (duplicate) {
@@ -19,6 +21,7 @@ const handleNewUser = async (req, res) => {
       username: user,
       password: hashedPwd,
     });
+    console.log(result);
     //confirm new user has been created
     res.status(201).json({ success: `New user ${user} has been created!` });
   } catch (err) {

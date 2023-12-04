@@ -4,9 +4,39 @@
     "title": "brown-jacket",
     "price": 11999,
     "description": "A stylish and modern piece with an asymmetrical zipper, and details    for a touch of sophistication.",
-    "Occasion": "",
     "category": "Stylish jackets",
-    "image": "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "rating": ""
+    "image": "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": 2,
+    "title": "Black leather-jacket",
+    "price": 20000,
+    "description": "A black leather-jacket for daily use",
+    "category": "Leather jackets",
+    "image": "https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": 3,
+    "title": "brown Fancy Johdpuri suit",
+    "price": 780000,
+    "description": "Expensive Brown Johdpuri Suit for formal occacions",
+    "category": "Clothing",
+    "image": "https://cdn.discordapp.com/attachments/1179001915045056593/1179394465870401636/id3.jpeg?ex=65799fb0&is=65672ab0&hm=626096304eb0285548a92f5d63473e66a960c699d6ed78707719dabe80388a16&"
+  },
+  {
+    "id": 4,
+    "title": "Orange corvette",
+    "price": 2000000,
+    "description": "Orange corvette with stylish decor",
+    "category": "Cars",
+    "image": "https://cdn.discordapp.com/attachments/1179001915045056593/1179395137328123934/id4.jpeg?ex=6579a050&is=65672b50&hm=0caa14ee786a49cd95c857e67007ac4755474426e2616493a9f9091d8ef333f2&"
+  },
+  {
+    "id": 5,
+    "title": "Orange Mercedes Benz G63",
+    "price": 2000000,
+    "description": "Orange Mercedes Benz G63 with a hefty body",
+    "category": "Cars",
+    "image": "https://cdn.discordapp.com/attachments/1179001915045056593/1179395696059752458/id5.jpeg?ex=6579a0d6&is=65672bd6&hm=841605d1918a6f29de28722e27d64f9f18e51042991e0194b9a791dfd8dd4d5b&"
   }
 ]

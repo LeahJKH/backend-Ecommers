@@ -41,7 +41,7 @@ const updateProduct = async (req, res) => {
   try {
     const product = await Product.findOne({ title: req.body.title }).exec();
     if (!product) return res.status(204).json({ message: `No products matched${product}.` });
-    if (req.body?.title) product.title = req.body.title;
+    if (req.body?.newtitle) product.title = req.body.newtitle;
     if (req.body?.price) product.price = req.body.price;
     if (req.body?.description) product.description = req.body.description;
     if (req.body?.category) product.category = req.body.category;

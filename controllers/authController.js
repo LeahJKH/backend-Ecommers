@@ -13,12 +13,12 @@ const path = require("path");
 require("dotenv").config();
 
 const handleLogin = async (req, res) => {
-  const { user, password } = req.body;
-  if (!user || !password) {
+  const { username, password } = req.body;
+  if (!username || !password) {
     return res.status(400).json({ message: "Username and password are required" });
   }
 
-  const foundUser = usersDB.users.find((person) => person.username === user);
+  const foundUser = usersDB.users.find((person) => person.username === username);
 
   if (!foundUser) return res.sendStatus(401);
 

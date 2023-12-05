@@ -53,6 +53,7 @@ const getSingleUser = async (req, res) => {
   if (!req.params?.id) {
     return res.status(400).json({ message: "Please enter an ID to search for." });
   }
+  //look for the _id, the objectID provided by MongoDB automatically, and match it to the id in the request (without _ )
   const user = await User.findOne({ _id: req.params.id }).exec();
   if (!user) {
     return res.status(204).json({ message: `No user matched ID ${req.params.id}` });

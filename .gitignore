@@ -1,0 +1,6 @@
+.env
+node_modules
+eventLog.txt
+errorLog.txt
+usersTxt.txt
+users.json

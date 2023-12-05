@@ -10,6 +10,7 @@ const fsPromises = require("fs").promises;
 const path = require("path");
 const bcrypt = require("bcrypt");
 
+//not functional
 const getAllUsers = (req, res) => {
   res.json(usersDB.users);
 };

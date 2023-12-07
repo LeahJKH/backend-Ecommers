@@ -13,6 +13,7 @@ const errorHandler = require("./middleware/errorHandler");
 const connectDB = require("./config/dbConn");
 
 const corsOptions = require("./config/corsOptions");
+const verifyJWT = require("./middleware/verifyJWT");
 
 connectDB();
 
@@ -31,14 +32,16 @@ app.use(cookieParser());
 
 //routes
 app.use("/", require("./routes/root"));
-//registering and logging in
-app.use("/register", require("./routes/register"));
-app.use("/auth", require("./routes/auth"));
-app.use("/refresh", require("./routes/refresh"));
-app.use("/logout", require("./routes/logout"));
 //api
 app.use("/users", require("./routes/api/users"));
 app.use("/products", require("./routes/api/products"));
+//registering and logging in
+app.use("/register", require("./routes/register"));
+app.use("/auth", require("./routes/auth"));
+app.use(verifyJWT);
+app.use("/refresh", require("./routes/refresh"));
+app.use("/logout", require("./routes/logout"));
+
 //catch-all 404 response page
 app.all("*", (req, res) => {
   res.status(404);

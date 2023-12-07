@@ -49,11 +49,3 @@ app.all("*", (req, res) => {
 app.use(errorHandler);
 //confirm server is running and on which port
 app.listen(PORT, () => console.log(`server is running on port ${PORT}`));
-
-/*const getProducts = () => {
-  fetch("https://fakestoreapi.com/products")
-    .then((res) => res.json())
-    .then((json) => console.log(json));
-};
-
-getProducts();*/

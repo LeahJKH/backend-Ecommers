@@ -60,11 +60,3 @@ mongoose.connection.once("open", () => {
   console.log("Connected to MongoDB Database");
   app.listen(PORT, () => console.log(`server is running on port ${PORT}`));
 });
-
-/*const getProducts = () => {
-  fetch("https://fakestoreapi.com/products")
-    .then((res) => res.json())
-    .then((json) => console.log(json));
-};
-
-getProducts();*/

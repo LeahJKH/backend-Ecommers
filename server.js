@@ -10,6 +10,7 @@ const cookieParser = require("cookie-parser");
 const { logger } = require("./middleware/logEvents");
 const errorHandler = require("./middleware/errorHandler");
 const corsOptions = require("./config/corsOptions");
+const verifyJWT = require("./middleware/verifyJWT");
 
 const PORT = process.env.PORT || 3500;
 
@@ -28,6 +29,7 @@ app.use("/", require("./routes/root"));
 //routes
 app.use("/users", require("./routes/user"));
 app.use("/auth", require("./routes/auth"));
+app.use(verifyJWT);
 app.use("/refresh", require("./routes/refresh"));
 app.use("/logout", require("./routes/logout"));
 

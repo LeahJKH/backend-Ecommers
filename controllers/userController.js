@@ -5,14 +5,19 @@ const usersDB = {
   },
 };
 
+let data = {};
+data = require("../model/users.json");
+
 const fs = require("fs");
 const fsPromises = require("fs").promises;
 const path = require("path");
 const bcrypt = require("bcrypt");
 
 //not functional
+//was thinking it could be useful for an admin to be able to find and remove malignant users, but right now, in this version they cannot GET said users, though they can still just look in the literal "database"
 const getAllUsers = (req, res) => {
-  res.json(usersDB.users);
+  res.json(data);
+  //res.json(usersDB.users);
 };
 
 const createNewUser = async (req, res) => {

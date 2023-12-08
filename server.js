@@ -24,8 +24,6 @@ const PORT = process.env.PORT || 3500;
 //static files
 app.use(express.static(path.join(__dirname, "./public")));
 
-app.use(errorHandler);
-
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser());
@@ -54,6 +52,8 @@ app.all("*", (req, res) => {
     res.type("txt").send("404 text not found");
   }
 });
+
+app.use(errorHandler);
 
 //connect to database, check connection and log confirmation of connection and port once
 mongoose.connection.once("open", () => {

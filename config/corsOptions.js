@@ -7,8 +7,9 @@ const whitelist = [
   "http://127.0.0.1:5173",
   "http://localhost:49999",
   "http://127.0.0.1:49999",
-  "https://lustrous-mochi-5b629c.netlify.app",
+  "https://desiderio.netlify.app/",
 ];
+
 const corsOptions = {
   origin: (origin, callback) => {
     if (whitelist.indexOf(origin) !== -1 || !origin) {
